@@ -1,0 +1,12 @@
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Magasin\Magasin\bin\Debug\Magasin.exe.config
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Magasin\Magasin\bin\Debug\Magasin.exe
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Magasin\Magasin\bin\Debug\Magasin.pdb
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Magasin\Magasin\obj\Debug\Magasin.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Magasin\Magasin\obj\Debug\Magasin.Authentification.resources
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Magasin\Magasin\obj\Debug\Magasin.Properties.Resources.resources
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Magasin\Magasin\obj\Debug\Magasin.csproj.GenerateResource.Cache
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Magasin\Magasin\obj\Debug\Magasin.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Magasin\Magasin\obj\Debug\Magasin.exe
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Magasin\Magasin\obj\Debug\Magasin.pdb
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Magasin\Magasin\obj\Debug\Magasin.index.resources
+C:\Users\lenovo\Documents\Visual Studio 2017\Projects\Magasin\Magasin\obj\Debug\Magasin.AjoutMateriel.resources
