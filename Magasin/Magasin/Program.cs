@@ -16,7 +16,7 @@ namespace Magasin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AjoutMateriel());
+            Application.Run(new Authentification());
         }
     }
 }
