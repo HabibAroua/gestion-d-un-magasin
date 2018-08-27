@@ -31,7 +31,7 @@ namespace Magasin.DA
         {
             SqlDataAdapter adap1;
             DataTable tab1;
-            adap1 = new SqlDataAdapter("select * from Bloc", "Data Source=DESKTOP-UU0N3RP//SQLEXPRESS;Initial Catalog=Magasin_M4;Integrated Security=True");
+            adap1 = new SqlDataAdapter("select * from Bloc", Properties.Settings.Default.cn);
             DataSet dtst = new DataSet();
             adap1.Fill(dtst, "Bloc");
             tab1 = dtst.Tables["Bloc"];
