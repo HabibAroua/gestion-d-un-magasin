@@ -106,3 +106,18 @@ update Materiel set nomCasier='C3H Connecteurs Jaieger' where ref='307-9699';
 
 
 select * from Materiel where ref='251-661';
+
+select * from Bloc;
+
+select Cassier.nom from Cassier , Bloc where Cassier.nomBloc=Bloc.nom and Bloc.nom='Bloc A';
+
+select * from Materiel; 
+select * from Cassier;
+
+select  Materiel.ref , Materiel.description , Materiel.prix , Materiel.quantite , Materiel.lien , Fabricant.nom , Cassier.nom ,Bloc.nom   from Materiel , Fabricant , Cassier , Bloc
+where Materiel.nomFab=Fabricant.nom and Cassier.nom=Materiel.nomCasier and Bloc.nom=Cassier.nomBloc
+order by Bloc.nom;
+
+select  Materiel.ref , Materiel.description , Materiel.prix , Materiel.quantite , Materiel.lien , Fabricant.nom , Cassier.nom ,Bloc.nom   from Materiel , Fabricant , Cassier , Bloc
+where ((Materiel.nomFab=Fabricant.nom) and (Cassier.nom=Materiel.nomCasier) and (Bloc.nom=Cassier.nomBloc) and  (Materiel.ref like '3%'))
+order by Bloc.nom;

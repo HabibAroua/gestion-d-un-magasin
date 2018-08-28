@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Magasin.Model;
+using System.Data;
+
 namespace Magasin.DA
 {
     class MaterielDA
@@ -52,6 +54,30 @@ namespace Magasin.DA
             {
                 cn.Close();
             }
+
+            
+        }
+
+        public DataTable sellectAll()
+        {
+            SqlDataAdapter adap1;
+            DataTable tab1;
+            adap1 = new SqlDataAdapter("select  Materiel.ref , Materiel.description , Materiel.prix , Materiel.quantite , Materiel.lien , Fabricant.nom , Cassier.nom ,Bloc.nom   from Materiel , Fabricant , Cassier , Bloc where Materiel.nomFab = Fabricant.nom and Cassier.nom = Materiel.nomCasier and Bloc.nom = Cassier.nomBloc order by Bloc.nom", Properties.Settings.Default.cn);
+            DataSet dtst = new DataSet();
+            adap1.Fill(dtst, "Materiel");
+            tab1 = dtst.Tables["Materiel"];
+            return tab1;
+        }
+
+        public DataTable findByChar(string ch)
+        {
+            SqlDataAdapter adap1;
+            DataTable tab1;
+            adap1 = new SqlDataAdapter("select  Materiel.ref , Materiel.description , Materiel.prix , Materiel.quantite , Materiel.lien , Fabricant.nom , Cassier.nom ,Bloc.nom   from Materiel , Fabricant , Cassier , Bloc where((Materiel.nomFab = Fabricant.nom) and(Cassier.nom = Materiel.nomCasier) and(Bloc.nom = Cassier.nomBloc) and (Materiel.ref like '"+ch+"%'))", Properties.Settings.Default.cn);
+            DataSet dtst = new DataSet();
+            adap1.Fill(dtst, "Materiel");
+            tab1 = dtst.Tables["Materiel"];
+            return tab1;
         }
     }
 }

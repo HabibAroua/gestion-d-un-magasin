@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Magasin.Model;
+using System.Data;
 
 namespace Magasin.DA
 {
@@ -40,6 +38,41 @@ namespace Magasin.DA
             Reader.Close();
             cn.Close();
             return list;
+        }
+
+        public DataTable findCassierByBloc(string nomBloc)
+        {
+             SqlDataAdapter adap1;
+             DataTable tab1;
+             adap1 = new SqlDataAdapter("select Cassier.nom from Cassier , Bloc where Cassier.nomBloc=Bloc.nom and Bloc.nom='"+nomBloc+"'", Properties.Settings.Default.cn);
+             DataSet dtst = new DataSet();
+             adap1.Fill(dtst, "Cassier");
+             tab1 = dtst.Tables["Cassier"];
+             return tab1;
+        }
+
+        public Boolean ajout(Cassier cassier)
+        {
+            try
+            {
+                string nom = cassier.getNom();
+                Bloc bloc = cassier.getB();
+                string req = string.Format("insert into Cassier values ('" + nom + "','" + bloc.getNom() + "')");
+                cmd.Connection = cn;
+                cn.Open();
+                cmd.CommandText = req;
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                System.Console.WriteLine("error :" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
     }
 }

@@ -22,3 +22,7 @@ C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\
 C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\Magasin.csproj.CoreCompileInputs.cache
 C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\Magasin.exe
 C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\Magasin.pdb
+C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\Magasin.AjoutMateriel2.resources
+C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\Magasin.AjouterCasier.resources
+C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\Magasin.RechercheMateriel.resources
+C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\Magasin.ModifierMateriel.resources
