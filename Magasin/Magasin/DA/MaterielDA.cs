@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Magasin.Model;
 using System.Data;
@@ -78,6 +74,57 @@ namespace Magasin.DA
             adap1.Fill(dtst, "Materiel");
             tab1 = dtst.Tables["Materiel"];
             return tab1;
+        }
+
+        public Boolean modifier(Materiel m , string refe)
+        {
+            try
+            {
+                string reference = m.getReference();
+                string des = m.getDescription();
+                string prix = m.getPrix();
+                string quantite = m.getQuantite();
+                string lien = m.getLien();
+                Fabricant fab = m.getFabricant();
+                Cassier c = m.getCassier();
+                string req = string.Format("update Materiel set ref='" + reference+"', description='"+des+"' , prix='"+prix+"' , quantite='"+quantite+"' , lien='"+lien+"' , nomFab='"+fab.getNom()+"' , nomCasier='"+c.getNom()+"' where ref='"+refe+"'");
+                cmd.Connection = cn;
+                cn.Open();
+                cmd.CommandText = req;
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                System.Console.WriteLine("error :" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public Boolean Supprimer  (string refe)
+        {
+            try
+            {
+                string req = string.Format("delete Materiel where ref='"+refe+"'");
+                cmd.Connection = cn;
+                cn.Open();
+                cmd.CommandText = req;
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                System.Console.WriteLine("error :" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
     }
 }

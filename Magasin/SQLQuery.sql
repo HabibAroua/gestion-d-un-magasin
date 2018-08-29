@@ -99,10 +99,9 @@ update Materiel set prix='8.60'
 
 insert into Materiel values ('aa','20 voies, larg. 25,4 mm, 28 AWG, pas de 1.27mm, Gris, 5m','186,65','5','https://media.rs-online.com/t_thumb100/F2899896-01.jpg',' RS Pro','B3H Nappes');
 
-delete Materiel where ref='105-5017';
+delete Materiel where ref='11';
 
 update Materiel set nomCasier='C3H Connecteurs Jaieger' where ref='307-9699';
-
 
 
 select * from Materiel where ref='251-661';
@@ -121,3 +120,8 @@ order by Bloc.nom;
 select  Materiel.ref , Materiel.description , Materiel.prix , Materiel.quantite , Materiel.lien , Fabricant.nom , Cassier.nom ,Bloc.nom   from Materiel , Fabricant , Cassier , Bloc
 where ((Materiel.nomFab=Fabricant.nom) and (Cassier.nom=Materiel.nomCasier) and (Bloc.nom=Cassier.nomBloc) and  (Materiel.ref like '3%'))
 order by Bloc.nom;
+
+select * from Materiel;
+
+update  Materiel set ref='+reference+', description='des' , prix='prix' , quantite='quantite' , lien='lien' , nomFab='fab.getNom()' , nomCasier='.getNom()' where ref='refe';
+delete Materiel where reference='"+refe+"';

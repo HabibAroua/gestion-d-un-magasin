@@ -32,6 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtRefCherche = new System.Windows.Forms.TextBox();
             this.dataGridMataeriel = new System.Windows.Forms.DataGridView();
+            this.btModifier = new System.Windows.Forms.Button();
+            this.btSupprimer = new System.Windows.Forms.Button();
+            this.btActualiser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMataeriel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,24 +51,58 @@
             // 
             this.txtRefCherche.Location = new System.Drawing.Point(183, 66);
             this.txtRefCherche.Name = "txtRefCherche";
-            this.txtRefCherche.Size = new System.Drawing.Size(152, 20);
+            this.txtRefCherche.Size = new System.Drawing.Size(165, 20);
             this.txtRefCherche.TabIndex = 1;
             this.txtRefCherche.TextChanged += new System.EventHandler(this.txtRefCherche_TextChanged);
             // 
             // dataGridMataeriel
             // 
             this.dataGridMataeriel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridMataeriel.Location = new System.Drawing.Point(26, 112);
+            this.dataGridMataeriel.Location = new System.Drawing.Point(52, 103);
             this.dataGridMataeriel.Name = "dataGridMataeriel";
             this.dataGridMataeriel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridMataeriel.Size = new System.Drawing.Size(866, 256);
+            this.dataGridMataeriel.Size = new System.Drawing.Size(861, 256);
             this.dataGridMataeriel.TabIndex = 2;
+            this.dataGridMataeriel.DoubleClick += new System.EventHandler(this.dataGridMataeriel_DoubleClick);
+            // 
+            // btModifier
+            // 
+            this.btModifier.Location = new System.Drawing.Point(376, 66);
+            this.btModifier.Name = "btModifier";
+            this.btModifier.Size = new System.Drawing.Size(75, 23);
+            this.btModifier.TabIndex = 3;
+            this.btModifier.Text = "Modifier";
+            this.btModifier.UseVisualStyleBackColor = true;
+            this.btModifier.Click += new System.EventHandler(this.btModifier_Click);
+            // 
+            // btSupprimer
+            // 
+            this.btSupprimer.Location = new System.Drawing.Point(457, 66);
+            this.btSupprimer.Name = "btSupprimer";
+            this.btSupprimer.Size = new System.Drawing.Size(75, 23);
+            this.btSupprimer.TabIndex = 4;
+            this.btSupprimer.Text = "Supprimer";
+            this.btSupprimer.UseVisualStyleBackColor = true;
+            this.btSupprimer.Click += new System.EventHandler(this.btSupprimer_Click);
+            // 
+            // btActualiser
+            // 
+            this.btActualiser.Location = new System.Drawing.Point(538, 66);
+            this.btActualiser.Name = "btActualiser";
+            this.btActualiser.Size = new System.Drawing.Size(75, 23);
+            this.btActualiser.TabIndex = 5;
+            this.btActualiser.Text = "Actualiser";
+            this.btActualiser.UseVisualStyleBackColor = true;
+            this.btActualiser.Click += new System.EventHandler(this.btActualiser_Click);
             // 
             // RechercheMateriel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 380);
+            this.ClientSize = new System.Drawing.Size(979, 380);
+            this.Controls.Add(this.btActualiser);
+            this.Controls.Add(this.btSupprimer);
+            this.Controls.Add(this.btModifier);
             this.Controls.Add(this.dataGridMataeriel);
             this.Controls.Add(this.txtRefCherche);
             this.Controls.Add(this.label1);
@@ -83,6 +120,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtRefCherche;
-        private System.Windows.Forms.DataGridView dataGridMataeriel;
+        public System.Windows.Forms.DataGridView dataGridMataeriel;
+        private System.Windows.Forms.Button btModifier;
+        private System.Windows.Forms.Button btSupprimer;
+        private System.Windows.Forms.Button btActualiser;
     }
 }

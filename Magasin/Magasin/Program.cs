@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Magasin
@@ -16,7 +13,7 @@ namespace Magasin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ConsultMateriel());
+            Application.Run(new RechercheMateriel());
         }
     }
 }
