@@ -6,6 +6,17 @@ namespace Magasin
 {
     public partial class index : Form
     {
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
+
         BlocDA blocDA;
         CassierDA cassierDA;
 
@@ -15,10 +26,14 @@ namespace Magasin
             blocDA = new BlocDA();
             cassierDA = new CassierDA();
         }
+        private void load()
+        {
+            dataGridBloc.DataSource = blocDA.sellectAll();
+        }
 
         private void index_Load(object sender, EventArgs e)
         {
-            dataGridBloc.DataSource = blocDA.sellectAll();
+            load();   
         }
 
         private void dataGridBloc_SelectionChanged(object sender, EventArgs e)
@@ -50,6 +65,52 @@ namespace Magasin
         private void quittezToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void quittezToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            DialogResult a = MessageBox.Show("voulez vous quittez ?", "quittez l'application", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (a== DialogResult.Yes)
+            {
+                Application.Exit();
+          
+            }
+        }
+
+        private void redémarerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void actualiséToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dataGridBloc.DataSource = blocDA.sellectAll();
+        }
+
+        private void gestionDesMatérielsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RechercheMateriel r = new RechercheMateriel();
+            r.Show();
+        }
+
+        private void ajouterMaterielToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AjoutMateriel aj = new AjoutMateriel();
+            aj.Show();
+        }
+
+        private void btAjouter_Click(object sender, EventArgs e)
+        {
+            Boolean test = blocDA.Ajouter(new Model.Bloc(txtBloc.Text));
+            if(test==true)
+            {
+                MessageBox.Show("L'ajout du bloc est effectué avec succes","L'ajout",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                load();
+            }
+            else
+            {
+                MessageBox.Show("Erreur au niveau de l'ajout", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

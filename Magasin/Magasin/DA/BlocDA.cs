@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using Magasin.Model;
 
 namespace Magasin.DA
 {
@@ -17,16 +14,15 @@ namespace Magasin.DA
         {
             try
             {
-                cn = new SqlConnection("Data Source=DESKTOP-UU0N3RP//SQLEXPRESS;Initial Catalog=Magasin_M4;Integrated Security=True"); //Source= nom de serveur , Catalog= nom de la base de donnee
+                cn = new SqlConnection("Data Source=DESKTOP-UU0N3RP\\SQLEXPRESS;Initial Catalog=Magasin_M4;Integrated Security=True"); //Source= nom de serveur , Catalog= nom de la base de donnee
                 cmd = new SqlCommand();
             }
             catch (Exception ex)
             {
                 System.Console.WriteLine(ex.Message);
             }
-
         }
-
+        
         public DataTable sellectAll()
         {
             SqlDataAdapter adap1;
@@ -36,6 +32,51 @@ namespace Magasin.DA
             adap1.Fill(dtst, "Bloc");
             tab1 = dtst.Tables["Bloc"];
             return tab1;
+        }
+
+        public Boolean Ajouter(Bloc b)
+        {
+            try
+            {
+                string nom = b.getNom();
+                string req = string.Format("insert into Bloc values('"+nom+"')");
+                cmd.Connection = cn;
+                cn.Open();
+                cmd.CommandText = req;
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+              Console.WriteLine("error :" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public Boolean Supprimer(string nom)
+        {
+            try
+            {
+                string req = string.Format("delete Bloc where nom='"+nom+"'");
+                cmd.Connection = cn;
+                cn.Open();
+                cmd.CommandText = req;
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("error :" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
     }
 }

@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Magasin.DA;
 using Magasin.Model;
 using System.Windows.Forms;
@@ -65,10 +59,11 @@ namespace Magasin
         private void btModifier_Click(object sender, EventArgs e)
         {
             Materiel m = new Materiel(txtRef.Text, txtDesc.Text, txtPrix.Text, txtQuantite.Text, txtLien.Text, new Fabricant(txtFab.Text), new Cassier(txtNomCasier.Text));
-            Boolean test = materielDA.modifier(m, getReference());
+            Boolean test = materielDA.ModifierPa(m, getReference());
             if (test== true)
             {
                 MessageBox.Show("La mise à jour de matétriel est effectué avec succés", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {
@@ -126,8 +121,8 @@ namespace Magasin
         {
             txtRef.Text = getReference();
             txtDesc.Text = getDescription();
-            txtPrix.Text = getPrix();
-            txtQuantite.Text = getQuantite();
+            txtPrix.Text =convertFloat(getPrix());
+            txtQuantite.Text =convertFloat(getQuantite());
             txtLien.Text = getLien();
             listFab.Text = getFab();
             listNomCasier.Text = getCasier();
@@ -148,7 +143,26 @@ namespace Magasin
             }
 
             txtFab.Text = getFab();
+            txtFab.Enabled = false;
+            txtNomCasier.Enabled = false;
 
+        }
+
+        public string convertFloat(string ch)
+        {
+            string res = "";
+            foreach(char c in ch)
+            {
+                if(c==',')
+                {
+                    res = res + '.';
+                }
+                else
+                {
+                    res = res + c;
+                }
+            }
+            return res;
         }
 
     }

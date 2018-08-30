@@ -123,5 +123,9 @@ order by Bloc.nom;
 
 select * from Materiel;
 
+select * from Bloc;
+
 update  Materiel set ref='+reference+', description='des' , prix='prix' , quantite='quantite' , lien='lien' , nomFab='fab.getNom()' , nomCasier='.getNom()' where ref='refe';
 delete Materiel where reference='"+refe+"';
+
+

@@ -13,7 +13,7 @@ namespace Magasin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RechercheMateriel());
+            Application.Run(new Authentification());
         }
     }
 }

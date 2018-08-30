@@ -27,6 +27,11 @@ namespace Magasin.Model
             cas = c;
         }
 
+        public Materiel(string reference)
+        {
+            this.reference = reference;
+        }
+
         public string getReference()
         {
             return this.reference;

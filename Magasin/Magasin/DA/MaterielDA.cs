@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using Magasin.Model;
 using System.Data;
+using System.Collections.Generic;
 
 namespace Magasin.DA
 {
@@ -25,33 +26,31 @@ namespace Magasin.DA
 
         public Boolean Ajout(Materiel m)
         {
-           try
-           {
-                string reference= m.getReference();
+            try
+            {
+                string reference = m.getReference();
                 string des = m.getDescription();
                 string prix = m.getPrix();
                 string quantite = m.getQuantite();
                 string lien = m.getLien();
                 Fabricant fab = m.getFabricant();
                 Cassier c = m.getCassier();
-                string req = string.Format("insert into Materiel values ('"+reference+"','"+des+"','"+prix+"','"+quantite+"','"+lien+"','"+fab.getNom()+"','"+c.getNom() +"')");
+                string req = string.Format("insert into Materiel values ('" + reference + "','" + des + "','" + prix + "','" + quantite + "','" + lien + "','" + fab.getNom() + "','" + c.getNom() + "')");
                 cmd.Connection = cn;
                 cn.Open();
                 cmd.CommandText = req;
                 cmd.ExecuteNonQuery();
                 return true;
-           }
-           catch (SqlException ex)
+            }
+            catch (SqlException ex)
             {
-                System.Console.WriteLine("error :" + ex.Message);
+                Console.WriteLine("error :" + ex.Message);
                 return false;
             }
             finally
             {
                 cn.Close();
             }
-
-            
         }
 
         public DataTable sellectAll()
@@ -126,5 +125,108 @@ namespace Magasin.DA
                 cn.Close();
             }
         }
+
+        public Boolean AjouterP(Materiel m)
+        {
+            try
+            {
+                string reference = m.getReference();
+                string des = m.getDescription();
+                string prix = m.getPrix();
+                string quantite = m.getQuantite();
+                string lien = m.getLien();
+                Fabricant fab = m.getFabricant();
+                Cassier c = m.getCassier();
+                cn.Open();
+                cmd.Connection = cn;
+                cmd.CommandText = "insert into Materiel values (@reference,@des,@prix,@quantite,@lien,@fab,@casier)";
+                cmd.Parameters.Add(new SqlParameter("@reference",reference));
+                cmd.Parameters.Add(new SqlParameter("@des", des));
+                cmd.Parameters.Add(new SqlParameter("@prix", prix));
+                cmd.Parameters.Add(new SqlParameter("@quantite", quantite));
+                cmd.Parameters.Add(new SqlParameter("@lien", lien));
+                cmd.Parameters.Add(new SqlParameter("@fab", fab.getNom()));
+                cmd.Parameters.Add(new SqlParameter("@casier", c.getNom()));
+                cmd.ExecuteNonQuery();  
+                return true;
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine("error :" + ex);
+                return false;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public Boolean ModifierPa(Materiel m , string refe)
+        {
+            try
+            {
+                string reference = m.getReference();
+                string des = m.getDescription();
+                string prix = m.getPrix();
+                string quantite = m.getQuantite();
+                string lien = m.getLien();
+                Fabricant fab = m.getFabricant();
+                Cassier c = m.getCassier();
+                cn.Open();
+                cmd.Connection = cn;
+                cmd.CommandText = "update Materiel set ref= @reference, description = @des, prix = @prix, quantite = @quantite, lien = @lien, nomFab = @nomFab, nomCasier=@nomCasier  where ref=@refe";
+                cmd.Parameters.Add(new SqlParameter("@reference", reference));
+                cmd.Parameters.Add(new SqlParameter("@des", des));
+                cmd.Parameters.Add(new SqlParameter("@prix", prix));
+                cmd.Parameters.Add(new SqlParameter("@quantite", quantite));
+                cmd.Parameters.Add(new SqlParameter("@lien", lien));
+                cmd.Parameters.Add(new SqlParameter("@nomFab", fab.getNom()));
+                cmd.Parameters.Add(new SqlParameter("@nomCasier", c.getNom()));
+                cmd.Parameters.Add(new SqlParameter("@refe", refe));
+                cmd.ExecuteNonQuery();
+                return true;
+                
+            }
+            catch (SqlException ex)
+            {
+                 Console.WriteLine("error :" + ex);
+                 return false;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public List<Materiel> getAllMateriel()
+        {
+            List<Materiel> list = new List<Materiel>();
+            string req = string.Format("select * from Materiel");
+            cn.Open();
+            cmd = new SqlCommand(req, cn);
+            SqlDataReader Reader = cmd.ExecuteReader();
+            while (Reader.Read())
+            {
+                list.Add(new Materiel(Reader.GetString(0),Reader.GetString(1),Reader.GetString(2),Reader.GetString(3),Reader.GetString(4),new Fabricant(Reader.GetString(5)),new Cassier(Reader.GetString(6))));
+            }
+            Reader.Close();
+            cn.Close();
+            return list;
+        }
+
+        public Boolean refExist(List<Materiel> list , string refe)
+        {
+            Boolean test = false;
+            foreach(Materiel m in list)
+            {
+                if(m.getReference().Equals(refe))
+                {
+                    test = true;
+                    break;
+                }
+            }
+            return test;
+        }
+
     }
 }
