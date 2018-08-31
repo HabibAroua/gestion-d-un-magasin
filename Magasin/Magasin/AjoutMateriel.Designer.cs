@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjoutMateriel));
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,17 +45,10 @@
             this.txtLien = new System.Windows.Forms.TextBox();
             this.listFab = new System.Windows.Forms.ComboBox();
             this.listNomCasier = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(206, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ajout matériel";
             // 
             // label2
             // 
@@ -193,11 +185,32 @@
             this.listNomCasier.Size = new System.Drawing.Size(276, 21);
             this.listNomCasier.TabIndex = 22;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Location = new System.Drawing.Point(-54, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(700, 74);
+            this.panel1.TabIndex = 23;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label9.Location = new System.Drawing.Point(259, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(182, 29);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Ajouter matériel";
+            // 
             // AjoutMateriel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 465);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.listNomCasier);
             this.Controls.Add(this.listFab);
             this.Controls.Add(this.txtLien);
@@ -214,19 +227,21 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AjoutMateriel";
-            this.Text = "AjoutMateriel";
+            this.Text = "Ajout Materiel";
             this.Load += new System.EventHandler(this.AjoutMateriel_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -243,5 +258,7 @@
         private System.Windows.Forms.TextBox txtLien;
         private System.Windows.Forms.ComboBox listFab;
         private System.Windows.Forms.ComboBox listNomCasier;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label9;
     }
 }

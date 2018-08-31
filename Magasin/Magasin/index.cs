@@ -6,6 +6,7 @@ namespace Magasin
 {
     public partial class index : Form
     {
+        /*
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
         {
@@ -16,6 +17,7 @@ namespace Magasin
                 return myCp;
             }
         }
+        */
 
         BlocDA blocDA;
         CassierDA cassierDA;
@@ -26,6 +28,7 @@ namespace Magasin
             blocDA = new BlocDA();
             cassierDA = new CassierDA();
         }
+
         private void load()
         {
             dataGridBloc.DataSource = blocDA.sellectAll();
@@ -51,7 +54,8 @@ namespace Magasin
 
         private void btAjout_Click(object sender, EventArgs e)
         {
-            AjoutMateriel a = new AjoutMateriel();
+            AjoutMateriel2 a = new AjoutMateriel2();
+            a.setCasier(dataGridCasier.CurrentRow.Cells[0].Value.ToString());
             a.Show();
         }
 
@@ -101,15 +105,66 @@ namespace Magasin
 
         private void btAjouter_Click(object sender, EventArgs e)
         {
-            Boolean test = blocDA.Ajouter(new Model.Bloc(txtBloc.Text));
-            if(test==true)
+            if(txtBloc.Text.Equals(""))
             {
-                MessageBox.Show("L'ajout du bloc est effectué avec succes","L'ajout",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                load();
+                MessageBox.Show("Champs vide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Erreur au niveau de l'ajout", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Boolean test = blocDA.Ajouter(new Model.Bloc(txtBloc.Text));
+                if (test == true)
+                {
+                    MessageBox.Show("L'ajout du bloc est effectué avec succes", "L'ajout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    load();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur au niveau de l'ajout", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btSupprimer_Click(object sender, EventArgs e)
+        {
+            DialogResult a = MessageBox.Show("Voulez vous supprimez ce casier", "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(a==DialogResult.Yes)
+            {
+                Boolean test = cassierDA.supprimer(dataGridCasier.CurrentRow.Cells[0].Value.ToString());
+                if(test==true)
+                {
+                    MessageBox.Show("Suppresion de ce casier est effectué avec succes", "Succes de suppresion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    load();
+                }
+                else
+                {
+                    MessageBox.Show("Ce casier n'est pas vide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Suppression Annulé", "Suppression annulé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult a = MessageBox.Show("Voulez vous supprimez ce bloc", "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (a == DialogResult.Yes)
+            {
+                Boolean test = blocDA.Supprimer(dataGridBloc.CurrentRow.Cells[0].Value.ToString());
+                if (test == true)
+                {
+                    MessageBox.Show("Suppresion de ce bloc est effectué avec succes", "Succes de suppresion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    load();
+                }
+                else
+                {
+                    MessageBox.Show("Ce bloc n'est pas vide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Suppression Annulé", "Suppression annulé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

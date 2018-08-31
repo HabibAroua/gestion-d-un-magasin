@@ -113,7 +113,7 @@ select Cassier.nom from Cassier , Bloc where Cassier.nomBloc=Bloc.nom and Bloc.n
 select * from Materiel; 
 select * from Cassier;
 
-select  Materiel.ref , Materiel.description , Materiel.prix , Materiel.quantite , Materiel.lien , Fabricant.nom , Cassier.nom ,Bloc.nom   from Materiel , Fabricant , Cassier , Bloc
+select  Materiel.ref , Materiel.description , Materiel.prix , Materiel.quantite , Materiel.lien , Fabricant.nom As Fabricant , Cassier.nom As Casier ,Bloc.nom As Bloc from Materiel , Fabricant , Cassier , Bloc
 where Materiel.nomFab=Fabricant.nom and Cassier.nom=Materiel.nomCasier and Bloc.nom=Cassier.nomBloc
 order by Bloc.nom;
 

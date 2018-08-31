@@ -97,7 +97,7 @@ namespace Magasin
         {
             labelRef.Text = getReference();
             labelDesc.Text = getDescription();
-            labelPrix.Text = getPrix();
+            labelPrix.Text = getPrix()+" €";
             labelQuantite.Text = getQuantite();
             labelFab.Text = getFab();
             labelCasier.Text = getCasier();

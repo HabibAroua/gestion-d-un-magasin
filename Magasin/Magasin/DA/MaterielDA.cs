@@ -57,7 +57,7 @@ namespace Magasin.DA
         {
             SqlDataAdapter adap1;
             DataTable tab1;
-            adap1 = new SqlDataAdapter("select  Materiel.ref , Materiel.description , Materiel.prix , Materiel.quantite , Materiel.lien , Fabricant.nom , Cassier.nom ,Bloc.nom   from Materiel , Fabricant , Cassier , Bloc where Materiel.nomFab = Fabricant.nom and Cassier.nom = Materiel.nomCasier and Bloc.nom = Cassier.nomBloc order by Bloc.nom", Properties.Settings.Default.cn);
+            adap1 = new SqlDataAdapter("select  Materiel.ref , Materiel.description , Materiel.prix , Materiel.quantite , Materiel.lien , Fabricant.nom As Fabricant , Cassier.nom As Casier ,Bloc.nom As Bloc from Materiel , Fabricant , Cassier , Bloc where Materiel.nomFab = Fabricant.nom and Cassier.nom = Materiel.nomCasier and Bloc.nom = Cassier.nomBloc order by Bloc.nom", Properties.Settings.Default.cn);
             DataSet dtst = new DataSet();
             adap1.Fill(dtst, "Materiel");
             tab1 = dtst.Tables["Materiel"];
@@ -68,7 +68,7 @@ namespace Magasin.DA
         {
             SqlDataAdapter adap1;
             DataTable tab1;
-            adap1 = new SqlDataAdapter("select  Materiel.ref , Materiel.description , Materiel.prix , Materiel.quantite , Materiel.lien , Fabricant.nom , Cassier.nom ,Bloc.nom   from Materiel , Fabricant , Cassier , Bloc where((Materiel.nomFab = Fabricant.nom) and(Cassier.nom = Materiel.nomCasier) and(Bloc.nom = Cassier.nomBloc) and (Materiel.ref like '"+ch+"%'))", Properties.Settings.Default.cn);
+            adap1 = new SqlDataAdapter("select  Materiel.ref , Materiel.description , Materiel.prix , Materiel.quantite , Materiel.lien , Fabricant.nom As Fabricant , Cassier.nom As Casier ,Bloc.nom As Bloc from Materiel , Fabricant , Cassier , Bloc where((Materiel.nomFab = Fabricant.nom) and(Cassier.nom = Materiel.nomCasier) and(Bloc.nom = Cassier.nomBloc) and (Materiel.ref like '" + ch+"%'))", Properties.Settings.Default.cn);
             DataSet dtst = new DataSet();
             adap1.Fill(dtst, "Materiel");
             tab1 = dtst.Tables["Materiel"];
@@ -207,7 +207,7 @@ namespace Magasin.DA
             SqlDataReader Reader = cmd.ExecuteReader();
             while (Reader.Read())
             {
-                list.Add(new Materiel(Reader.GetString(0),Reader.GetString(1),Reader.GetString(2),Reader.GetString(3),Reader.GetString(4),new Fabricant(Reader.GetString(5)),new Cassier(Reader.GetString(6))));
+                list.Add(new Materiel(Reader.GetString(0)));
             }
             Reader.Close();
             cn.Close();

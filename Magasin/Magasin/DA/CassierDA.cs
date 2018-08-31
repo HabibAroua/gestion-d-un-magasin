@@ -74,5 +74,27 @@ namespace Magasin.DA
                 cn.Close();
             }
         }
+
+        public Boolean supprimer(string nom)
+        {
+            try
+            {
+                string req = string.Format("delete cassier where nom='"+nom+"'");
+                cmd.Connection = cn;
+                cn.Open();
+                cmd.CommandText = req;
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                System.Console.WriteLine("error :" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 }

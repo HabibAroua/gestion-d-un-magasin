@@ -31,8 +31,8 @@ namespace Magasin
 
             if((login=="user") && (password=="asteel"))
             {
-                index i = new index();
-                i.Show();
+                Accueil a = new Accueil();
+                a.Show();
                 this.Hide();
             }
             else
