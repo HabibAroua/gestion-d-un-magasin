@@ -16,7 +16,14 @@ namespace Magasin
 
         private void RechercheMateriel_Load(object sender, EventArgs e)
         {
-            dataGridMataeriel.DataSource = materielDA.sellectAll();
+            try
+            {
+                dataGridMataeriel.DataSource = materielDA.sellectAll();
+            }
+            catch(Exception ex)
+            {
+                System.Console.WriteLine("Error :" + ex.Message);
+            }
         }
 
         private void txtRefCherche_TextChanged(object sender, EventArgs e)
@@ -65,7 +72,6 @@ namespace Magasin
                 else
                 {
                     MessageBox.Show("erreur", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
             }
             else
@@ -76,7 +82,14 @@ namespace Magasin
 
         private void btActualiser_Click(object sender, EventArgs e)
         {
-            dataGridMataeriel.DataSource = materielDA.sellectAll();
+            try
+            {
+                dataGridMataeriel.DataSource = materielDA.sellectAll();
+            }
+            catch(Exception ex)
+            {
+                System.Console.WriteLine("Error :" + ex.Message);
+            }
         }
     }
 }
