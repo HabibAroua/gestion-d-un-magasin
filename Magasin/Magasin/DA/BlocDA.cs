@@ -25,13 +25,21 @@ namespace Magasin.DA
         
         public DataTable sellectAll()
         {
-            SqlDataAdapter adap1;
-            DataTable tab1;
-            adap1 = new SqlDataAdapter("select * from Bloc", Properties.Settings.Default.cn);
-            DataSet dtst = new DataSet();
-            adap1.Fill(dtst, "Bloc");
-            tab1 = dtst.Tables["Bloc"];
-            return tab1;
+            try
+            {
+                SqlDataAdapter adap1;
+                DataTable tab1;
+                adap1 = new SqlDataAdapter("select * from Bloc", Properties.Settings.Default.cn);
+                DataSet dtst = new DataSet();
+                adap1.Fill(dtst, "Bloc");
+                tab1 = dtst.Tables["Bloc"];
+                return tab1;
+            }
+            catch(Exception ex)
+            {
+                System.Console.WriteLine("error :" + ex.Message);
+                return null;
+            }
         }
 
         public Boolean Ajouter(Bloc b)
