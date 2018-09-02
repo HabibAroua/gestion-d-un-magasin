@@ -61,9 +61,23 @@ namespace Magasin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AjouterCasier ajouterCasier = new AjouterCasier();
-            ajouterCasier.Show();
-            ajouterCasier.setNomBloc(dataGridBloc.CurrentRow.Cells[0].Value.ToString());
+            try
+            {
+                if (dataGridBloc.CurrentRow.Cells[0].Value.ToString() == null)
+                {
+                    MessageBox.Show("Impossible d'ajouter une nouvelle casier", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    AjouterCasier ajouterCasier = new AjouterCasier();
+                    ajouterCasier.Show();
+                    ajouterCasier.setNomBloc(dataGridBloc.CurrentRow.Cells[0].Value.ToString());
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void quittezToolStripMenuItem_Click(object sender, EventArgs e)
@@ -126,45 +140,59 @@ namespace Magasin
 
         private void btSupprimer_Click(object sender, EventArgs e)
         {
-            DialogResult a = MessageBox.Show("Voulez vous supprimez ce casier", "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(a==DialogResult.Yes)
+            try
             {
-                Boolean test = cassierDA.supprimer(dataGridCasier.CurrentRow.Cells[0].Value.ToString());
-                if(test==true)
+                DialogResult a = MessageBox.Show("Voulez vous supprimez ce casier", "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (a == DialogResult.Yes)
                 {
-                    MessageBox.Show("Suppresion de ce casier est effectué avec succes", "Succes de suppresion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    load();
+                    Boolean test = cassierDA.supprimer(dataGridCasier.CurrentRow.Cells[0].Value.ToString());
+                    if (test == true)
+                    {
+                        MessageBox.Show("Suppresion de ce casier est effectué avec succes", "Succes de suppresion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        load();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ce casier n'est pas vide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Ce casier n'est pas vide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Suppression Annulé", "Suppression annulé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else
+            catch(NullReferenceException ex)
             {
-                MessageBox.Show("Suppression Annulé", "Suppression annulé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error : Element non séléctionné", ex.Message, MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult a = MessageBox.Show("Voulez vous supprimez ce bloc", "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (a == DialogResult.Yes)
+            try
             {
-                Boolean test = blocDA.Supprimer(dataGridBloc.CurrentRow.Cells[0].Value.ToString());
-                if (test == true)
+                DialogResult a = MessageBox.Show("Voulez vous supprimez ce bloc", "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (a == DialogResult.Yes)
                 {
-                    MessageBox.Show("Suppresion de ce bloc est effectué avec succes", "Succes de suppresion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    load();
+                    Boolean test = blocDA.Supprimer(dataGridBloc.CurrentRow.Cells[0].Value.ToString());
+                    if (test == true)
+                    {
+                        MessageBox.Show("Suppresion de ce bloc est effectué avec succes", "Succes de suppresion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        load();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ce bloc n'est pas vide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Ce bloc n'est pas vide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Suppression Annulé", "Suppression annulé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else
+            catch(NullReferenceException ex)
             {
-                MessageBox.Show("Suppression Annulé", "Suppression annulé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error : Element non séléctionné", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
