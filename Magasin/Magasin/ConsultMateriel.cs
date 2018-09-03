@@ -6,7 +6,7 @@ namespace Magasin
 {
     public partial class ConsultMateriel : Form
     {
-        public string reference, description, prix, quantite, lien, fab, casier, bloc;
+        public string reference, description, prix, quantite, lien, fab, casier, bloc; //get value
 
         public void setReference(string reference)
         {
