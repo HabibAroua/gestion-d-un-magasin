@@ -26,18 +26,26 @@ namespace Magasin.DA
 
         public List<Cassier> getAllCassier()
         {
-            List<Cassier> list = new List<Cassier>();
-            string req = string.Format("select * from Cassier");
-            cn.Open();
-            cmd = new SqlCommand(req, cn);
-            SqlDataReader Reader = cmd.ExecuteReader();
-            while (Reader.Read())
+            try
             {
-                list.Add(new Cassier(Reader.GetString(0),new Bloc(Reader.GetString(1))));
+                List<Cassier> list = new List<Cassier>();
+                string req = string.Format("select * from Cassier");
+                cn.Open();
+                cmd = new SqlCommand(req, cn);
+                SqlDataReader Reader = cmd.ExecuteReader();
+                while (Reader.Read())
+                {
+                    list.Add(new Cassier(Reader.GetString(0), new Bloc(Reader.GetString(1))));
+                }
+                Reader.Close();
+                cn.Close();
+                return list;
             }
-            Reader.Close();
-            cn.Close();
-            return list;
+            catch(Exception ex)
+            {
+                System.Console.WriteLine("Error :" + ex.Message);
+                return null;
+            }
         }
 
         public DataTable findCassierByBloc(string nomBloc)
