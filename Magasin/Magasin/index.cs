@@ -54,9 +54,16 @@ namespace Magasin
 
         private void btAjout_Click(object sender, EventArgs e)
         {
-            AjoutMateriel2 a = new AjoutMateriel2();
-            a.setCasier(dataGridCasier.CurrentRow.Cells[0].Value.ToString());
-            a.Show();
+            try
+            {
+                AjoutMateriel2 a = new AjoutMateriel2();
+                a.setCasier(dataGridCasier.CurrentRow.Cells[0].Value.ToString());
+                a.Show();
+            }
+            catch(NullReferenceException ex)
+            {
+                MessageBox.Show("Impossible d'ajouter une nouvelle casier", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -76,7 +83,7 @@ namespace Magasin
             }
             catch(Exception ex)
             {
-                MessageBox.Show("error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Impossible d'ajouter une nouvelle casier", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
