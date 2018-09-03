@@ -28,7 +28,14 @@ namespace Magasin
 
         private void txtRefCherche_TextChanged(object sender, EventArgs e)
         {
-            dataGridMataeriel.DataSource = materielDA.findByChar(txtRefCherche.Text);
+            try
+            {
+                dataGridMataeriel.DataSource = materielDA.findByChar(txtRefCherche.Text);
+            }
+            catch(Exception ex)
+            {
+                System.Console.WriteLine("Error : " + ex.Message);
+            }
         }
 
         private void dataGridMataeriel_DoubleClick(object sender, EventArgs e)
@@ -47,36 +54,50 @@ namespace Magasin
 
         private void btModifier_Click(object sender, EventArgs e)
         {
-            ModifierMateriel m = new ModifierMateriel();
-            m.setReference(dataGridMataeriel.CurrentRow.Cells[0].Value.ToString());
-            m.setDescription(dataGridMataeriel.CurrentRow.Cells[1].Value.ToString());
-            m.setPrix(dataGridMataeriel.CurrentRow.Cells[2].Value.ToString());
-            m.setQuantite(dataGridMataeriel.CurrentRow.Cells[3].Value.ToString());
-            m.setFab(dataGridMataeriel.CurrentRow.Cells[5].Value.ToString());
-            m.setCasier(dataGridMataeriel.CurrentRow.Cells[6].Value.ToString());
-            m.setLien(dataGridMataeriel.CurrentRow.Cells[4].Value.ToString());
-            m.Show();
+            try
+            {
+                ModifierMateriel m = new ModifierMateriel();
+                m.setReference(dataGridMataeriel.CurrentRow.Cells[0].Value.ToString());
+                m.setDescription(dataGridMataeriel.CurrentRow.Cells[1].Value.ToString());
+                m.setPrix(dataGridMataeriel.CurrentRow.Cells[2].Value.ToString());
+                m.setQuantite(dataGridMataeriel.CurrentRow.Cells[3].Value.ToString());
+                m.setFab(dataGridMataeriel.CurrentRow.Cells[5].Value.ToString());
+                m.setCasier(dataGridMataeriel.CurrentRow.Cells[6].Value.ToString());
+                m.setLien(dataGridMataeriel.CurrentRow.Cells[4].Value.ToString());
+                m.Show();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error : Element non séléctionné", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btSupprimer_Click(object sender, EventArgs e)
         {
-            DialogResult a= MessageBox.Show("voulez vous supprimer ce materiel ?", "message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (a==DialogResult.Yes)
+            try
             {
-                Boolean test = materielDA.Supprimer(dataGridMataeriel.CurrentRow.Cells[0].Value.ToString());
-                if (test==true)
+                DialogResult a = MessageBox.Show("voulez vous supprimer ce materiel ?", "message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (a == DialogResult.Yes)
                 {
-                    MessageBox.Show("la suppression est effectué avec succés", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dataGridMataeriel.DataSource = materielDA.sellectAll();
+                    Boolean test = materielDA.Supprimer(dataGridMataeriel.CurrentRow.Cells[0].Value.ToString());
+                    if (test == true)
+                    {
+                        MessageBox.Show("la suppression est effectué avec succés", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dataGridMataeriel.DataSource = materielDA.sellectAll();
+                    }
+                    else
+                    {
+                        MessageBox.Show("erreur", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("erreur", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Suppression annulé", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Suppression annulé", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error : Element non séléctionné", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
