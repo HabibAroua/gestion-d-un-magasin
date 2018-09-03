@@ -50,13 +50,21 @@ namespace Magasin.DA
 
         public DataTable findCassierByBloc(string nomBloc)
         {
-             SqlDataAdapter adap1;
-             DataTable tab1;
-             adap1 = new SqlDataAdapter("select Cassier.nom from Cassier , Bloc where Cassier.nomBloc=Bloc.nom and Bloc.nom='"+nomBloc+"'", Properties.Settings.Default.cn);
-             DataSet dtst = new DataSet();
-             adap1.Fill(dtst, "Cassier");
-             tab1 = dtst.Tables["Cassier"];
-             return tab1;
+            try
+            {
+                SqlDataAdapter adap1;
+                DataTable tab1;
+                adap1 = new SqlDataAdapter("select Cassier.nom from Cassier , Bloc where Cassier.nomBloc=Bloc.nom and Bloc.nom='" + nomBloc + "'", Properties.Settings.Default.cn);
+                DataSet dtst = new DataSet();
+                adap1.Fill(dtst, "Cassier");
+                tab1 = dtst.Tables["Cassier"];
+                return tab1;
+            }
+            catch(Exception ex)
+            {
+                System.Console.WriteLine("Error :" + ex.Message);
+                return null;
+            }
         }
 
         public Boolean ajout(Cassier cassier)
