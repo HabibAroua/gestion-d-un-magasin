@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Magasin.Model;
+
 namespace Magasin.DA
 {
     class FabricantDA
@@ -27,18 +25,26 @@ namespace Magasin.DA
 
         public List<Fabricant> getAllFabricant()
         {
-            List<Fabricant> list = new List<Fabricant>();
-            string req = string.Format("select * from Fabricant");
-            cn.Open();
-            cmd = new SqlCommand(req, cn);
-            SqlDataReader Reader = cmd.ExecuteReader();
-            while (Reader.Read())
+            try
             {
-                list.Add(new Fabricant(Reader.GetString(0)));
+                List<Fabricant> list = new List<Fabricant>();
+                string req = string.Format("select * from Fabricant");
+                cn.Open();
+                cmd = new SqlCommand(req, cn);
+                SqlDataReader Reader = cmd.ExecuteReader();
+                while (Reader.Read())
+                {
+                    list.Add(new Fabricant(Reader.GetString(0)));
+                }
+                Reader.Close();
+                cn.Close();
+                return list;
             }
-            Reader.Close();
-            cn.Close();
-            return list;
+            catch(Exception ex)
+            {
+                System.Console.WriteLine("Error :" + ex.Message);
+                return null;
+            }
         }
     }
 
