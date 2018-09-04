@@ -189,7 +189,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(-54, 1);
+            this.panel1.Location = new System.Drawing.Point(-54, -17);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(700, 74);
             this.panel1.TabIndex = 23;
@@ -199,7 +199,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(259, 23);
+            this.label9.Location = new System.Drawing.Point(247, 29);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(182, 29);
             this.label9.TabIndex = 0;
