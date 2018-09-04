@@ -6,19 +6,6 @@ namespace Magasin
 {
     public partial class index : Form
     {
-        /*
-        private const int CP_NOCLOSE_BUTTON = 0x200;
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams myCp = base.CreateParams;
-                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
-                return myCp;
-            }
-        }
-        */
-
         BlocDA blocDA;
         CassierDA cassierDA;
 
@@ -32,11 +19,16 @@ namespace Magasin
         private void load()
         {
             dataGridBloc.DataSource = blocDA.sellectAll();
+            dataGridBloc.RowHeadersWidth = 61;
+            for (int i = 0; i < dataGridCasier.Columns.Count; i++)
+            {
+                dataGridCasier.Columns[i].Width = 151;
+            }
         }
 
         private void index_Load(object sender, EventArgs e)
         {
-            load();   
+            load();
         }
 
         private void dataGridBloc_SelectionChanged(object sender, EventArgs e)
