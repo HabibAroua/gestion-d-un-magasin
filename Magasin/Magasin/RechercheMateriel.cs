@@ -120,5 +120,27 @@ namespace Magasin
                 System.Console.WriteLine("Error :" + ex.Message);
             }
         }
+
+        private void dataGridMataeriel_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                ConsultMateriel c = new ConsultMateriel();
+                c.setReference(dataGridMataeriel.CurrentRow.Cells[0].Value.ToString());
+                c.setDescription(dataGridMataeriel.CurrentRow.Cells[1].Value.ToString());
+                c.setPrix(dataGridMataeriel.CurrentRow.Cells[2].Value.ToString());
+                c.setQuantite(dataGridMataeriel.CurrentRow.Cells[3].Value.ToString());
+                c.setFab(dataGridMataeriel.CurrentRow.Cells[5].Value.ToString());
+                c.setCasier(dataGridMataeriel.CurrentRow.Cells[6].Value.ToString());
+                c.setBloc(dataGridMataeriel.CurrentRow.Cells[7].Value.ToString());
+                c.setLien(dataGridMataeriel.CurrentRow.Cells[4].Value.ToString());
+                c.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : Element non séléctionné", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Console.WriteLine("Error " + ex.Message);
+            }
+        }
     }
 }

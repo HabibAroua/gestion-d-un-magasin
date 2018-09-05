@@ -59,6 +59,7 @@
             this.dataGridMataeriel.Name = "dataGridMataeriel";
             this.dataGridMataeriel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridMataeriel.DoubleClick += new System.EventHandler(this.dataGridMataeriel_DoubleClick);
+            this.dataGridMataeriel.Enter += new System.EventHandler(this.dataGridMataeriel_Enter);
             // 
             // btModifier
             // 
