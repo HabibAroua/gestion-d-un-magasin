@@ -24,6 +24,23 @@ namespace Magasin.Sql_Server
             }
         }
 
+        public Boolean testConnection(string ch)
+        {
+            try
+            {
+                SqlConnection cn;
+                SqlCommand cmd; //Properties.Settings.Default.cn
+                cn = new SqlConnection(ch); //Source= nom de serveur , Catalog= nom de la base de donnee
+                cmd = new SqlCommand();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
         private string getConnectionCh()
         {
             return "Data Source=DESKTOP-UU0N3RP\\SQLEXPRESS;Initial Catalog=Magasin_M4;Integrated Security=True";

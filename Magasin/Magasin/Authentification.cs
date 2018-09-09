@@ -22,7 +22,6 @@ namespace Magasin
         {
             string login = txtLogin.Text;
             string password = txtPassword.Text;
-
             if((login=="user") && (password=="asteel"))
             {
                 Accueil a = new Accueil();
@@ -42,10 +41,6 @@ namespace Magasin
             {
                 MessageBox.Show("Votre application n'est pas connecté avec la base de donnée ou bien le serveur est desactivé", "Impossible d'ouvrir l'application", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
-            }
-            else
-            {
-                MessageBox.Show("Bien");
             }
         }
     }
