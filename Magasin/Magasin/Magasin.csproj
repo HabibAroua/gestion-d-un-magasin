@@ -109,6 +109,7 @@
     <Compile Include="RechercheMateriel.Designer.cs">
       <DependentUpon>RechercheMateriel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sql Server\Test_Connection.cs" />
     <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,8 +159,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Sql Server\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
