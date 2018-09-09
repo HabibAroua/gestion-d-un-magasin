@@ -38,7 +38,7 @@ namespace Magasin
         private void Authentification_Load(object sender, EventArgs e)
         {
             Test_Connection t = new Test_Connection();
-            if(t.testConnection()==false)
+            if(t.testServer()==false)
             {
                 MessageBox.Show("Votre application n'est pas connecté avec la base de donnée ou bien le serveur est desactivé", "Impossible d'ouvrir l'application", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();

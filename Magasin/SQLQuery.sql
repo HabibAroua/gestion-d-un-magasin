@@ -129,3 +129,17 @@ update  Materiel set ref='+reference+', description='des' , prix='prix' , quanti
 delete Materiel where reference='"+refe+"';
 
 
+select 
+     sch.name as schemaname,
+     tab.name as tablename,
+     par.rows as rowcounts,
+     sum(alc.total_pages) * 8 as total_space,
+     sum(alc.used_pages) * 8 as used_space,
+     (sum(alc.total_pages) - sum(alc.used_pages)) * 8 as unused_space
+     from   sys.tables tab
+          inner join sys.indexes ind on tab.object_id = ind.object_id
+          inner join sys.partitions par on ind.object_id = par.object_id and ind.index_id = par.index_id
+          inner join sys.allocation_units alc on par.partition_id = alc.container_id
+          left outer join sys.schemas sch on tab.schema_id = sch.schema_id
+     group by tab.name, sch.name, par.rows
+     order by 1,2
