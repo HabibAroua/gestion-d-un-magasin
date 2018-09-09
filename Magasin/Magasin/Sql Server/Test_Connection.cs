@@ -5,12 +5,12 @@ namespace Magasin.Sql_Server
 {
     class Test_Connection
     {
-        public static Boolean testConnection()
+        public Boolean testConnection()
         {
             try
             {
                 SqlConnection cn;
-                SqlCommand cmd;
+                SqlCommand cmd; //Properties.Settings.Default.cn
                 cn = new SqlConnection("Data Source=DESKTOP-UU0N3RP\\SQLEXPRESS;Initial Catalog=Magasin_M4;Integrated Security=True"); //Source= nom de serveur , Catalog= nom de la base de donnee
                 cmd = new SqlCommand();
                 return true;

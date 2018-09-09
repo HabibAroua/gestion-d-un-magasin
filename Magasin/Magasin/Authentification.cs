@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Magasin.Sql_Server;
 
 namespace Magasin
 {
@@ -31,6 +32,20 @@ namespace Magasin
             else
             {
                 MessageBox.Show("Login ou mot de passe incorrect", "Message erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Authentification_Load(object sender, EventArgs e)
+        {
+            Test_Connection t = new Test_Connection();
+            if(t.testConnection()==false)
+            {
+                MessageBox.Show("Votre application n'est pas connecté avec la base de donnée ou bien le serveur est desactivé", "Impossible d'ouvrir l'application", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            else
+            {
+                MessageBox.Show("Bien");
             }
         }
     }
