@@ -13,7 +13,8 @@ namespace Magasin.DA
         {
             try
             {
-                cn = new SqlConnection("Data Source=DESKTOP-UU0N3RP\\SQLEXPRESS;Initial Catalog=Magasin_M4;Integrated Security=True"); //Source= nom de serveur , Catalog= nom de la base de donnee
+                //ch=Data Source=DESKTOP-UU0N3RP\\SQLEXPRESS;Initial Catalog=Magasin_M4;Integrated Security=True
+                cn = new SqlConnection(Properties.Settings.Default.cn); //Source= nom de serveur , Catalog= nom de la base de donnee
                 cmd = new SqlCommand();
             }
             catch (Exception ex)
