@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Magasin.DA;
+using Magasin.Regular_Expression;
 
 namespace Magasin
 {
@@ -118,21 +119,29 @@ namespace Magasin
 
         private void btAjouter_Click(object sender, EventArgs e)
         {
+            Regular r=new Regular();
             if(txtBloc.Text.Equals(""))
             {
                 MessageBox.Show("Champs vide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                Boolean test = blocDA.Ajouter(new Model.Bloc(txtBloc.Text));
-                if (test == true)
+                if (r.CommencerParBloc(txtBloc.Text))
                 {
-                    MessageBox.Show("L'ajout du bloc est effectué avec succes", "L'ajout", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    load();
+                    Boolean test = blocDA.Ajouter(new Model.Bloc(txtBloc.Text));
+                    if (test == true)
+                    {
+                        MessageBox.Show("L'ajout du bloc est effectué avec succes", "L'ajout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        load();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erreur au niveau de l'ajout", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Erreur au niveau de l'ajout", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Le nom doit commencer par Bloc", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

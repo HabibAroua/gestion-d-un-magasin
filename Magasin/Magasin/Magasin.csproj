@@ -109,6 +109,7 @@
     <Compile Include="RechercheMateriel.Designer.cs">
       <DependentUpon>RechercheMateriel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Regular_Expression\Regular.cs" />
     <Compile Include="Sql Server\Test_Connection.cs" />
     <EmbeddedResource Include="Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
