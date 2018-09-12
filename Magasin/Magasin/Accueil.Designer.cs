@@ -62,7 +62,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(558, 21);
+            this.label3.Location = new System.Drawing.Point(672, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 29);
             this.label3.TabIndex = 0;
@@ -186,7 +186,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Accueil";
             this.Text = "Accueil";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -197,6 +200,7 @@
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
