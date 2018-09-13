@@ -20,17 +20,24 @@ namespace Magasin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string login = txtLogin.Text;
-            string password = txtPassword.Text;
-            if((login=="user") && (password=="asteel"))
+            if((txtLogin.Text.Equals("") || (txtPassword.Text.Equals(""))))
             {
-                Accueil a = new Accueil();
-                a.Show();
-                this.Hide();
+                MessageBox.Show("Login ou mot de passe est vide", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Login ou mot de passe incorrect", "Message erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string login = txtLogin.Text;
+                string password = txtPassword.Text;
+                if ((login == "user") && (password == "asteel"))
+                {
+                    Accueil a = new Accueil();
+                    a.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Login ou mot de passe incorrect", "Message erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
