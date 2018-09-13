@@ -126,22 +126,29 @@ namespace Magasin
             }
             else
             {
-                if (r.CommencerParBloc(txtBloc.Text))
+                if(blocDA.Exist(blocDA.getAll(),new Model.Bloc(txtBloc.Text)))
                 {
-                    Boolean test = blocDA.Ajouter(new Model.Bloc(txtBloc.Text));
-                    if (test == true)
-                    {
-                        MessageBox.Show("L'ajout du bloc est effectué avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        load();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erreur au niveau de l'ajout", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Ce bloc est déja existe", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Le nom doit commencer par Bloc", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (r.CommencerParBloc(txtBloc.Text))
+                    {
+                        Boolean test = blocDA.Ajouter(new Model.Bloc(txtBloc.Text));
+                        if (test == true)
+                        {
+                            MessageBox.Show("L'ajout du bloc est effectué avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            load();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erreur au niveau de l'ajout", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Le nom doit commencer par Bloc", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

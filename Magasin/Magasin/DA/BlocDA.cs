@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using Magasin.Model;
+using System.Collections.Generic;
 
 namespace Magasin.DA
 {
@@ -85,6 +86,44 @@ namespace Magasin.DA
             {
                 cn.Close();
             }
+        }
+
+        public List<Bloc> getAll()
+        {
+            try
+            {
+                List<Bloc> list = new List<Bloc>();
+                string req = string.Format("select * from Bloc");
+                cn.Open();
+                cmd = new SqlCommand(req, cn);
+                SqlDataReader Reader = cmd.ExecuteReader();
+                while (Reader.Read())
+                {
+                    list.Add(new Bloc(Reader.GetString(0)));
+                }
+                Reader.Close();
+                cn.Close();
+                return list;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine("Message d'erreur :" + ex.Message);
+                return null;
+            }
+        }
+
+        public Boolean Exist(List<Bloc> list , Bloc bloc)
+        {
+            Boolean test = false;
+            foreach(Bloc b in list)
+            {
+                if(b.getNom().Equals(bloc.getNom()))
+                {
+                    test= true;
+                    break;
+                }
+            }
+            return test;
         }
     }
 }
