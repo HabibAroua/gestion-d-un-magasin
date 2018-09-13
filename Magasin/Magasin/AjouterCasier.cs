@@ -33,16 +33,24 @@ namespace Magasin
 
         private void btAjouter_Click(object sender, EventArgs e)
         {
-            Boolean test = cassierDA.ajout(new Cassier(txtNom.Text, new Bloc(getNomBloc())));
-            if(test==true)
+            if(txtNom.Text.Equals(""))
             {
-                MessageBox.Show("L'ajout de casier est effectué avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                MessageBox.Show("Champ vide", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Erreur au niveau de l'ajout", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Boolean test = cassierDA.ajout(new Cassier(txtNom.Text, new Bloc(getNomBloc())));
+                if (test == true)
+                {
+                    MessageBox.Show("L'ajout de casier est effectué avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur au niveau de l'ajout", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            
         }
     }
 }
