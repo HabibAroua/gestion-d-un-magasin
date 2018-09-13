@@ -50,7 +50,7 @@ namespace Magasin
         {
             if(materielDA.refExist(materielDA.getAllMateriel(), txtRef.Text))
             {
-                MessageBox.Show("Ce matériel est déjà Existe","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Ce matériel est déjà Existe","Message d'erreur",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else
             {
@@ -62,7 +62,7 @@ namespace Magasin
                 }
                 else
                 {
-                    MessageBox.Show("Echec", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vérifiez les valeurs", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

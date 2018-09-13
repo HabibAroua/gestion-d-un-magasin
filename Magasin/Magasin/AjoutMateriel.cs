@@ -38,7 +38,7 @@ namespace Magasin
             {
                 if (materielDA.refExist(materielDA.getAllMateriel(), txtRef.Text))
                 {
-                    MessageBox.Show("Ce réféerence est déjà existe", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ce réféerence est déjà existe", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -50,13 +50,13 @@ namespace Magasin
                     }
                     else
                     {
-                        MessageBox.Show("Echec", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Echec", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch(NullReferenceException ex)
             {
-                MessageBox.Show("Les choix de fabricant ou casier sont nulle", "error :" + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Les choix de fabricant ou casier sont nulle", "Message d'erreur :" + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

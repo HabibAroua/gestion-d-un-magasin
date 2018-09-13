@@ -22,7 +22,7 @@ namespace Magasin
             }
             catch(Exception ex)
             {
-                System.Console.WriteLine("Error :" + ex.Message);
+                System.Console.WriteLine("Message d'erreur :" + ex.Message);
             }
         }
 
@@ -34,7 +34,7 @@ namespace Magasin
             }
             catch(Exception ex)
             {
-                System.Console.WriteLine("Error : " + ex.Message);
+                System.Console.WriteLine("Message d'erreur : " + ex.Message);
             }
         }
 
@@ -55,8 +55,8 @@ namespace Magasin
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error : Element non séléctionné", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                System.Console.WriteLine("Error " + ex.Message);
+                MessageBox.Show("Erreur : Element non séléctionné", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Console.WriteLine("Message d'erreur :" + ex.Message);
             }
         }
 
@@ -76,7 +76,7 @@ namespace Magasin
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error : Element non séléctionné", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Message d'erreur : Element non séléctionné", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -84,18 +84,18 @@ namespace Magasin
         {
             try
             {
-                DialogResult a = MessageBox.Show("voulez vous supprimer ce materiel ?", "message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult a = MessageBox.Show("Voulez vous supprimer ce materiel ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (a == DialogResult.Yes)
                 {
                     Boolean test = materielDA.Supprimer(dataGridMataeriel.CurrentRow.Cells[0].Value.ToString());
                     if (test == true)
                     {
-                        MessageBox.Show("la suppression est effectué avec succés", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("La suppression est effectué avec succés", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         dataGridMataeriel.DataSource = materielDA.sellectAll();
                     }
                     else
                     {
-                        MessageBox.Show("erreur", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Erreur au niveau du suppression", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -105,7 +105,7 @@ namespace Magasin
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error : Element non séléctionné", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Message d'erreur : Element non séléctionné", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

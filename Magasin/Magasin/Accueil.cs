@@ -24,7 +24,7 @@ namespace Magasin
 
         private void quittezToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult a = MessageBox.Show("Voulez vous quittez ?", "Quitter", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult a = MessageBox.Show("Voulez vous quittez ?", "Quitter l'application", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(a==DialogResult.Yes)
             {
                 Application.Exit();

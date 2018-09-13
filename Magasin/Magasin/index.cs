@@ -65,7 +65,7 @@ namespace Magasin
             {
                 if (dataGridBloc.CurrentRow.Cells[0].Value.ToString() == null)
                 {
-                    MessageBox.Show("Impossible d'ajouter une nouvelle casier", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Impossible d'ajouter une nouvelle casier", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -87,7 +87,7 @@ namespace Magasin
 
         private void quittezToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            DialogResult a = MessageBox.Show("voulez vous quittez ?", "quittez l'application", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult a = MessageBox.Show("Voulez vous quittez ?", "quittez l'application", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (a== DialogResult.Yes)
             {
                 Application.Exit();
@@ -122,7 +122,7 @@ namespace Magasin
             Regular r=new Regular();
             if(txtBloc.Text.Equals(""))
             {
-                MessageBox.Show("Champs vide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Champs vide", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -131,12 +131,12 @@ namespace Magasin
                     Boolean test = blocDA.Ajouter(new Model.Bloc(txtBloc.Text));
                     if (test == true)
                     {
-                        MessageBox.Show("L'ajout du bloc est effectué avec succes", "L'ajout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("L'ajout du bloc est effectué avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         load();
                     }
                     else
                     {
-                        MessageBox.Show("Erreur au niveau de l'ajout", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Erreur au niveau de l'ajout", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -150,18 +150,18 @@ namespace Magasin
         {
             try
             {
-                DialogResult a = MessageBox.Show("Voulez vous supprimez ce casier", "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult a = MessageBox.Show("Voulez vous supprimez ce casier", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (a == DialogResult.Yes)
                 {
                     Boolean test = cassierDA.supprimer(dataGridCasier.CurrentRow.Cells[0].Value.ToString());
                     if (test == true)
                     {
-                        MessageBox.Show("Suppresion de ce casier est effectué avec succes", "Succes de suppresion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Suppresion de ce casier est effectué avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         load();
                     }
                     else
                     {
-                        MessageBox.Show("Ce casier n'est pas vide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ce casier n'est pas vide", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -171,7 +171,7 @@ namespace Magasin
             }
             catch(NullReferenceException ex)
             {
-                MessageBox.Show("Error : Element non séléctionné", ex.Message, MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Message d'erreur : Element non séléctionné", ex.Message, MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -179,23 +179,23 @@ namespace Magasin
         {
             try
             {
-                DialogResult a = MessageBox.Show("Voulez vous supprimez ce bloc", "Suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult a = MessageBox.Show("Voulez vous supprimez ce bloc", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (a == DialogResult.Yes)
                 {
                     Boolean test = blocDA.Supprimer(dataGridBloc.CurrentRow.Cells[0].Value.ToString());
                     if (test == true)
                     {
-                        MessageBox.Show("Suppresion de ce bloc est effectué avec succes", "Succes de suppresion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Suppresion de ce bloc est effectué avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         load();
                     }
                     else
                     {
-                        MessageBox.Show("Ce bloc n'est pas vide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ce bloc n'est pas vide", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Suppression Annulé", "Suppression annulé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Suppression Annulé", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch(NullReferenceException ex)

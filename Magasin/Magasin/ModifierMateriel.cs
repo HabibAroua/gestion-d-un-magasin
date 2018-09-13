@@ -67,7 +67,7 @@ namespace Magasin
             }
             else
             {
-                MessageBox.Show("Erreur au niveau de mise à jour", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erreur au niveau de mise à jour", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -126,7 +126,6 @@ namespace Magasin
             txtLien.Text = getLien();
             listFab.Text = getFab();
             listNomCasier.Text = getCasier();
-
             CassierDA cassierDA = new CassierDA();
             List<Cassier> list1 = cassierDA.getAllCassier();
             foreach (Cassier c in list1)
@@ -141,11 +140,9 @@ namespace Magasin
             {
                 listFab.Items.Add(f.getNom());
             }
-
             txtFab.Text = getFab();
             txtFab.Enabled = false;
             txtNomCasier.Enabled = false;
-
         }
 
         public string convertFloat(string ch)

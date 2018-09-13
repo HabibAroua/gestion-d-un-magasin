@@ -41,7 +41,7 @@ namespace Magasin
             }
             else
             {
-                MessageBox.Show("Erreur au niveau de l'ajout", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erreur au niveau de l'ajout", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
