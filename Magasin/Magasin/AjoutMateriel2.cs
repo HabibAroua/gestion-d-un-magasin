@@ -48,22 +48,33 @@ namespace Magasin
 
         private void btAjout_Click(object sender, EventArgs e)
         {
-            if(materielDA.refExist(materielDA.getAllMateriel(), txtRef.Text))
+            try
             {
-                MessageBox.Show("Ce matériel est déjà Existe","Message d'erreur",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-            else
-            {
-                Materiel m = new Materiel(txtRef.Text, txtDesc.Text, txtPrix.Text, txtQuantite.Text, txtLien.Text, new Fabricant(listFab.SelectedItem.ToString()), new Cassier(getCasier()));
-                Boolean test = materielDA.AjouterP(m);
-                if (test == true)
+                if ((txtRef.Text.Equals("") || (txtDesc.Text.Equals("")) || (txtPrix.Text.Equals("") || (txtQuantite.Equals("")) || (txtLien.Text.Equals("") || listFab.SelectedItem.ToString() == null))))
                 {
-                    MessageBox.Show("L'ajout de matériel est effectué avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Il y a au mois un champ vide ", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (materielDA.refExist(materielDA.getAllMateriel(), txtRef.Text))
+                {
+                    MessageBox.Show("Ce matériel est déjà Existe", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Vérifiez les valeurs", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Materiel m = new Materiel(txtRef.Text, txtDesc.Text, txtPrix.Text, txtQuantite.Text, txtLien.Text, new Fabricant(listFab.SelectedItem.ToString()), new Cassier(getCasier()));
+                    Boolean test = materielDA.AjouterP(m);
+                    if (test == true)
+                    {
+                        MessageBox.Show("L'ajout de matériel est effectué avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vérifiez les valeurs", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+            }
+            catch(NullReferenceException ex)
+            {
+                MessageBox.Show("Il faut choisir un Fabricant", "Message d'erreur :"+ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
