@@ -58,16 +58,23 @@ namespace Magasin
 
         private void btModifier_Click(object sender, EventArgs e)
         {
-            Materiel m = new Materiel(txtRef.Text, txtDesc.Text, txtPrix.Text, txtQuantite.Text, txtLien.Text, new Fabricant(txtFab.Text), new Cassier(txtNomCasier.Text));
-            Boolean test = materielDA.ModifierPa(m, getReference());
-            if (test== true)
+            if((txtRef.Text.Equals("")) || (txtDesc.Text.Equals("")) || (txtPrix.Text.Equals("")) || (txtQuantite.Text.Equals("")) || (txtLien.Text.Equals("")) )
             {
-                MessageBox.Show("La mise à jour de matétriel est effectué avec succés", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                MessageBox.Show("Il y a au moins un champs vide","Message d'erreur",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Erreur au niveau de mise à jour", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Materiel m = new Materiel(txtRef.Text, txtDesc.Text, txtPrix.Text, txtQuantite.Text, txtLien.Text, new Fabricant(txtFab.Text), new Cassier(txtNomCasier.Text));
+                Boolean test = materielDA.ModifierPa(m, getReference());
+                if (test == true)
+                {
+                    MessageBox.Show("La mise à jour de matétriel est effectué avec succés", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur au niveau de mise à jour", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -145,7 +152,7 @@ namespace Magasin
             txtNomCasier.Enabled = false;
         }
 
-        public string convertFloat(string ch)
+        private string convertFloat(string ch)
         {
             string res = "";
             foreach(char c in ch)
@@ -161,6 +168,5 @@ namespace Magasin
             }
             return res;
         }
-
     }
 }
