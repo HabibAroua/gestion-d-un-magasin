@@ -54,21 +54,24 @@ namespace Magasin
                 {
                     MessageBox.Show("Il y a au mois un champ vide ", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                if (materielDA.refExist(materielDA.getAllMateriel(), txtRef.Text))
-                {
-                    MessageBox.Show("Ce matériel est déjà Existe", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
                 else
                 {
-                    Materiel m = new Materiel(txtRef.Text, txtDesc.Text, txtPrix.Text, txtQuantite.Text, txtLien.Text, new Fabricant(listFab.SelectedItem.ToString()), new Cassier(getCasier()));
-                    Boolean test = materielDA.AjouterP(m);
-                    if (test == true)
+                    if (materielDA.refExist(materielDA.getAllMateriel(), txtRef.Text))
                     {
-                        MessageBox.Show("L'ajout de matériel est effectué avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Ce matériel est déjà Existe", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Vérifiez les valeurs", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Materiel m = new Materiel(txtRef.Text, txtDesc.Text, txtPrix.Text, txtQuantite.Text, txtLien.Text, new Fabricant(listFab.SelectedItem.ToString()), new Cassier(getCasier()));
+                        Boolean test = materielDA.AjouterP(m);
+                        if (test == true)
+                        {
+                            MessageBox.Show("L'ajout de matériel est effectué avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vérifiez les valeurs", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

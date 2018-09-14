@@ -55,7 +55,7 @@ namespace Magasin
             }
             catch(NullReferenceException ex)
             {
-                MessageBox.Show("Impossible d'ajouter une nouvelle casier", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Impossible d'ajouter un nouveau matériel", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
