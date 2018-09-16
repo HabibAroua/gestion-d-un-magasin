@@ -58,9 +58,9 @@ namespace Magasin
 
         private void btModifier_Click(object sender, EventArgs e)
         {
-            if((txtRef.Text.Equals("")) || (txtDesc.Text.Equals("")) || (txtPrix.Text.Equals("")) || (txtQuantite.Text.Equals("")) || (txtLien.Text.Equals("")) )
+            if ((txtRef.Text.Equals("")) || (txtDesc.Text.Equals("")) || (txtPrix.Text.Equals("")) || (txtQuantite.Text.Equals("")) || (txtLien.Text.Equals("")))
             {
-                MessageBox.Show("Il y a au moins un champs vide","Message d'erreur",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Il y a au moins un champs vide", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
