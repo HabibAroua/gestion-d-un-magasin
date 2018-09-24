@@ -43,6 +43,7 @@
             this.travailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDesMatérielsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajouterMaterielToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -174,11 +175,21 @@
             this.ajouterMaterielToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.ajouterMaterielToolStripMenuItem.Text = "Ajouter materiel";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(32, 281);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(194, 23);
+            this.button4.TabIndex = 16;
+            this.button4.Text = "Gestion des fabricant";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
@@ -219,5 +230,6 @@
         private System.Windows.Forms.ToolStripMenuItem travailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionDesMatérielsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajouterMaterielToolStripMenuItem;
+        private System.Windows.Forms.Button button4;
     }
 }
