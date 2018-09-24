@@ -74,7 +74,7 @@ namespace Magasin.DA
             try
             {
                 List<Fabricant> list = new List<Fabricant>();
-                string req = string.Format("select * from Fabricant");
+                string req = string.Format("select * from Fabricant , Materiel where Fabricant.nom='"+nom+ "' and Fabricant.nom=Materiel.nomFab");
                 cn.Open();
                 cmd = new SqlCommand(req, cn);
                 SqlDataReader Reader = cmd.ExecuteReader();

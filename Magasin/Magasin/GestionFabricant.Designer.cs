@@ -65,6 +65,7 @@
             this.dataGridFab.Name = "dataGridFab";
             this.dataGridFab.Size = new System.Drawing.Size(179, 177);
             this.dataGridFab.TabIndex = 25;
+            this.dataGridFab.SelectionChanged += new System.EventHandler(this.dataGridFab_SelectionChanged);
             // 
             // button1
             // 

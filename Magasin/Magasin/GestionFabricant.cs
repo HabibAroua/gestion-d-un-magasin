@@ -31,7 +31,19 @@ namespace Magasin
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(dataGridFab.CurrentRow.Cells[0].Value.ToString());
+            MessageBox.Show(fabricantDa.numberFabExist(dataGridFab.CurrentRow.Cells[0].Value.ToString())+" ");
+        }
+
+        private void dataGridFab_SelectionChanged(object sender, EventArgs e)
+        {
+            if(fabricantDa.numberFabExist(dataGridFab.CurrentRow.Cells[0].Value.ToString())>0)
+            {
+                btSupprimer.Enabled = false;
+            }
+            else
+            {
+                btSupprimer.Enabled = true;
+            }
         }
     }
 }
