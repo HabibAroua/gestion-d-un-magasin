@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using Magasin.Model;
+using System.Data;
+using System.Collections.Generic;
 
 namespace Magasin.DA
 {
@@ -47,6 +48,24 @@ namespace Magasin.DA
                 return null;
             }
         }
-    }
 
+        public DataTable sellectAll()
+        {
+            try
+            {
+                SqlDataAdapter adap1;
+                DataTable tab1;
+                adap1 = new SqlDataAdapter("select * from Fabricant", Properties.Settings.Default.cn);
+                DataSet dtst = new DataSet();
+                adap1.Fill(dtst, "Fabricant");
+                tab1 = dtst.Tables["Fabricant"];
+                return tab1;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine("error :" + ex.Message);
+                return null;
+            }
+        }
+    }
 }
