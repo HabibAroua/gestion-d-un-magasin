@@ -23,6 +23,10 @@ namespace Magasin
         private void GestionFabricant_Load(object sender, EventArgs e)
         {
             dataGridFab.DataSource = fabricantDa.sellectAll();
+            for (int i = 0; i < dataGridFab.Columns.Count; i++)
+            {
+                dataGridFab.Columns[i].Width = 151;
+            }
         }
     }
 }

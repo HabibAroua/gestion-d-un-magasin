@@ -61,9 +61,9 @@
             // dataGridFab
             // 
             this.dataGridFab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridFab.Location = new System.Drawing.Point(113, 118);
+            this.dataGridFab.Location = new System.Drawing.Point(144, 118);
             this.dataGridFab.Name = "dataGridFab";
-            this.dataGridFab.Size = new System.Drawing.Size(221, 177);
+            this.dataGridFab.Size = new System.Drawing.Size(179, 177);
             this.dataGridFab.TabIndex = 25;
             // 
             // button1
