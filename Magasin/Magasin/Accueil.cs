@@ -63,5 +63,11 @@ namespace Magasin
             RechercheMateriel r = new RechercheMateriel();
             r.Show();
         }
+
+        private void btGestionFabricant_Click(object sender, EventArgs e)
+        {
+            GestionFabricant gf = new GestionFabricant();
+            gf.Show();
+        }
     }
 }

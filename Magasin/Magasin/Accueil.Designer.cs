@@ -183,6 +183,7 @@
             this.btGestionFabricant.TabIndex = 16;
             this.btGestionFabricant.Text = "Gestion des fabricant";
             this.btGestionFabricant.UseVisualStyleBackColor = true;
+            this.btGestionFabricant.Click += new System.EventHandler(this.btGestionFabricant_Click);
             // 
             // Accueil
             // 
