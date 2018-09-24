@@ -67,5 +67,31 @@ namespace Magasin.DA
                 return null;
             }
         }
+
+        public int numberFabExist(string nom)
+        {
+            int res = 0;
+            try
+            {
+                List<Fabricant> list = new List<Fabricant>();
+                string req = string.Format("select * from Fabricant");
+                cn.Open();
+                cmd = new SqlCommand(req, cn);
+                SqlDataReader Reader = cmd.ExecuteReader();
+                while (Reader.Read())
+                {
+                    list.Add(new Fabricant(Reader.GetString(0)));
+                    res++;
+                }
+                Reader.Close();
+                cn.Close();
+                return res;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine("Error :" + ex.Message);
+                return 0;
+            }
+        }
     }
 }

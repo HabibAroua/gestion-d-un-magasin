@@ -33,7 +33,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.dataGridFab = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btSupprimer = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFab)).BeginInit();
             this.SuspendLayout();
@@ -75,22 +75,22 @@
             this.button1.Text = "Ajouter";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btSupprimer
             // 
-            this.button2.Location = new System.Drawing.Point(234, 89);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Supprimer";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btSupprimer.Location = new System.Drawing.Point(234, 89);
+            this.btSupprimer.Name = "btSupprimer";
+            this.btSupprimer.Size = new System.Drawing.Size(75, 23);
+            this.btSupprimer.TabIndex = 27;
+            this.btSupprimer.Text = "Supprimer";
+            this.btSupprimer.UseVisualStyleBackColor = true;
+            this.btSupprimer.Click += new System.EventHandler(this.button2_Click);
             // 
             // GestionFabricant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 319);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btSupprimer);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridFab);
             this.Controls.Add(this.panel1);
@@ -114,6 +114,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dataGridFab;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btSupprimer;
     }
 }
