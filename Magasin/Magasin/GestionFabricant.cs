@@ -28,5 +28,10 @@ namespace Magasin
                 dataGridFab.Columns[i].Width = 151;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(dataGridFab.CurrentRow.Cells[0].Value.ToString());
+        }
     }
 }

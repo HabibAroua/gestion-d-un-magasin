@@ -83,6 +83,7 @@
             this.button2.TabIndex = 27;
             this.button2.Text = "Supprimer";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // GestionFabricant
             // 
@@ -97,6 +98,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GestionFabricant";
+            this.ShowIcon = false;
             this.Text = "GestionFabricant";
             this.Load += new System.EventHandler(this.GestionFabricant_Load);
             this.panel1.ResumeLayout(false);
