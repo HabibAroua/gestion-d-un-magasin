@@ -85,6 +85,12 @@
     <Compile Include="DA\CassierDA.cs" />
     <Compile Include="DA\FabricantDA.cs" />
     <Compile Include="DA\MaterielDA.cs" />
+    <Compile Include="GestionFabricant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionFabricant.Designer.cs">
+      <DependentUpon>GestionFabricant.cs</DependentUpon>
+    </Compile>
     <Compile Include="index.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultMateriel.resx">
       <DependentUpon>ConsultMateriel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionFabricant.resx">
+      <DependentUpon>GestionFabricant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="index.resx">
       <DependentUpon>index.cs</DependentUpon>

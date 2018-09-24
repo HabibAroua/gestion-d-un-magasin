@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionFabricant));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridFab = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridFab)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,13 +58,13 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Gestion des fabricant";
             // 
-            // dataGridView1
+            // dataGridFab
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(113, 118);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(221, 177);
-            this.dataGridView1.TabIndex = 25;
+            this.dataGridFab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridFab.Location = new System.Drawing.Point(113, 118);
+            this.dataGridFab.Name = "dataGridFab";
+            this.dataGridFab.Size = new System.Drawing.Size(221, 177);
+            this.dataGridFab.TabIndex = 25;
             // 
             // button1
             // 
@@ -91,16 +91,17 @@
             this.ClientSize = new System.Drawing.Size(474, 319);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridFab);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GestionFabricant";
             this.Text = "GestionFabricant";
+            this.Load += new System.EventHandler(this.GestionFabricant_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridFab)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -109,7 +110,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridFab;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
     }

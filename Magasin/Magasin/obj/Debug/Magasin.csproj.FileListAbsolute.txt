@@ -28,3 +28,4 @@ C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\
 C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\Magasin.ModifierMateriel.resources
 C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\Magasin.ConsultMateriel.resources
 C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\Magasin.Accueil.resources
+C:\Users\lenovo\Documents\GitHub\gestion-d-un-magasin\Magasin\Magasin\obj\Debug\Magasin.GestionFabricant.resources
