@@ -45,5 +45,18 @@ namespace Magasin
                 btSupprimer.Enabled = true;
             }
         }
+
+        private void btAjouter_Click(object sender, EventArgs e)
+        {
+            Boolean test = fabricantDa.ajouter(new Model.Fabricant(txtNomFab.Text));
+            if(test==true)
+            {
+                MessageBox.Show("L'ajoout du fabricant efectué avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Erreur au niveau de l'ajout", ""Message d'erreur"", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -93,5 +93,28 @@ namespace Magasin.DA
                 return 0;
             }
         }
+
+        public Boolean ajouter(Fabricant f)
+        {
+            try
+            {
+                string nom = f.getNom();
+                cn.Open();
+                cmd.Connection = cn;
+                cmd.CommandText = "insert into Fabricant values (@nom)";
+                cmd.Parameters.Add(new SqlParameter("@nom", nom));
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("error :" + ex);
+                return false;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 }
