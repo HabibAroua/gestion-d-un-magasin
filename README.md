@@ -6,8 +6,9 @@ Les langages de programmation:
 C#+Sql
 
 Les environements logiciel :
--Microsoft Visual Studio 2017 : https://visualstudio.microsoft.com/fr/
--Microsoft Sql Server Management : https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017
+<ul>
+  <li>Microsoft Visual Studio 2017 : https://visualstudio.microsoft.com/fr/</li>
+<li>Microsoft Sql Server Management : https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017</li>
 
 
 IHM :
