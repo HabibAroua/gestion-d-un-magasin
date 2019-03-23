@@ -2,7 +2,7 @@
 
 L'application gestion d'un magasin est disponible pour l'entreprise <b>AsteelFlash</b> Tunisie elle est crée pour le service de maintenance test et développement.
 
-Les langages de programmation sont :
+Les langages de programmation sont  :
 C#+Sql
 
 Les environements logiciel :
