@@ -9,6 +9,7 @@ Les environements logiciel :
 <ul>
   <li>Microsoft Visual Studio 2017 : https://visualstudio.microsoft.com/fr/</li>
 <li>Microsoft Sql Server Management : https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017</li>
+  <li>SQL Server Express 2017 : </li>
 
 
 IHM :
