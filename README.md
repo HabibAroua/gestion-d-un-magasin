@@ -1,4 +1,4 @@
-# Gestion'd un magasin
+# Gestion d'un magasin
 
 L'application gestion d'un magasin est disponible pour l'entreprise <b>AsteelFlash Tunisie</b> elle a crée pour les deux services de maintenance test et développement.
 
