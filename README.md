@@ -1,16 +1,15 @@
 # Gestion'd un magasin
 
-L'application gestion d'un magasin est disponible pour l'entreprise <b>AsteelFlash</b> Tunisie elle est crée pour les deux services de maintenance test et développement.
+L'application gestion d'un magasin est disponible pour l'entreprise <b>AsteelFlash Tunisie</b> elle a crée pour les deux services de maintenance test et développement.
 
 Les langages de programmation sont :
 C#+Sql
 
 Les environements logiciels sont :
 <ul>
-  <li>Microsoft Visual Studio 2017 : https://visualstudio.microsoft.com/fr/</li>
-<li>Microsoft Sql Server Management : https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017</li>
+  <li>Microsoft Visual Studio 2017 ou 2019 : https://visualstudio.microsoft.com/fr/</li>
+  <li>Microsoft Sql Server Management : https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017</li>
   <li>SQL Server Express 2017 : LINK  </li>
-
 
 IHM :
 
