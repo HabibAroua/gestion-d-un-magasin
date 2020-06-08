@@ -47,10 +47,10 @@ namespace Magasin
                 c.setDescription(dataGridMataeriel.CurrentRow.Cells[1].Value.ToString());
                 c.setPrix(dataGridMataeriel.CurrentRow.Cells[2].Value.ToString());
                 c.setQuantite(dataGridMataeriel.CurrentRow.Cells[3].Value.ToString());
+                c.setLien(dataGridMataeriel.CurrentRow.Cells[4].Value.ToString());
                 c.setFab(dataGridMataeriel.CurrentRow.Cells[5].Value.ToString());
                 c.setCasier(dataGridMataeriel.CurrentRow.Cells[6].Value.ToString());
                 c.setBloc(dataGridMataeriel.CurrentRow.Cells[7].Value.ToString());
-                c.setLien(dataGridMataeriel.CurrentRow.Cells[4].Value.ToString());
                 c.Show();
             }
             catch(Exception ex)
