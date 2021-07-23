@@ -1,22 +1,22 @@
-create database Magasin_M4;
+CREATE database Magasin_M4;
 
-create table Bloc (nom varchar (6) primary key);
+CREATE TABLE Bloc (nom varchar (6) primary key);
 
-create table Cassier (nom varchar(30) primary key , nomBloc varchar(6));
+CREATE TABLE Cassier (nom varchar(30) primary key , nomBloc varchar(6));
 
-create table Materiel( ref varchar(15) primary key , description varchar(100) , prix float , quantite float , lien varchar(500) , nomFab varchar(20));
+CREATE TABLE Materiel( ref varchar(15) primary key , description varchar(100) , prix float , quantite float , lien varchar(500) , nomFab varchar(20));
 
-create table Fabricant (nom varchar(20) primary key);
+CREATE TABLE Fabricant (nom varchar(20) primary key);
 
-alter table Cassier add constraint c1 foreign key(nomBloc) references Bloc(nom);
+ALTER TABLE Cassier add constraint c1 foreign key(nomBloc) references Bloc(nom);
 
-alter table Materiel add constraint c2 foreign key (nomFab) references Fabricant(nom);
+ALTER TABLE Materiel add constraint c2 foreign key (nomFab) references Fabricant(nom);
 
-alter table Materiel add constraint c3 check ((prix>=0) or (prix=null));
-alter table Materiel drop constraint c3 ;
+ALTER TABLE Materiel add constraint c3 check ((prix>=0) or (prix=null));
+ALTER TABLE Materiel DROP constraint c3 ;
 
-alter table Materiel add constraint c4 check ((quantite>=0) or (prix=null));
-alter table Materiel drop constraint c4 ;
+ALTER TABLE Materiel add constraint c4 check ((quantite>=0) or (prix=null));
+ALTER TABLE Materiel DROP constraint c4 ;
 
 
 insert into Bloc values ('Bloc A');
@@ -45,7 +45,7 @@ insert into Cassier	values ('D2H Face avant et accessoires','Bloc D');
 
 
 insert into Cassier	values ('E3H  Connecteurs c -Grid','Bloc E');
-insert into Cassier	values ('E1 Cables électriques ','Bloc E');
+insert into Cassier	values ('E1 Cables Ã©lectriques ','Bloc E');
 
 insert into Cassier values ('F3H Composant','Bloc F');
 insert into Cassier values ('F3B led/ voyant fusible','Bloc F');
@@ -93,11 +93,11 @@ select * from Materiel;
 
 insert into Materiel values ('708-2037','50 voies, larg. 31,75 mm, 30 AWG, pas de 0.635mm, Gris, 30m',186.65,5,'https://media.rs-online.com/t_thumb100/R7082024-01.jpg','Amphenol','B3H Nappes');
 
-insert into Materiel values ('289-9896','20 voies, larg. 25,4 mm, 28 AWG, pas de 1.27mm, Gris, 5m',186.65,5,'https://media.rs-online.com/t_thumb100/F2899896-01.jpg',' RS Pro','B3H Nappes');
+insert into Materiel values ('289-9896','20 voies, larg. 25,4 mm, 28 AWG, pas de 1.27mm, Gris, 5m',186.65,5,'https://media.rs-online.com/t_thumb100/F2899896-01.jpg','Â RS Pro','B3H Nappes');
 
 update Materiel set prix='8.60'
 
-insert into Materiel values ('aa','20 voies, larg. 25,4 mm, 28 AWG, pas de 1.27mm, Gris, 5m','186,65','5','https://media.rs-online.com/t_thumb100/F2899896-01.jpg',' RS Pro','B3H Nappes');
+insert into Materiel values ('aa','20 voies, larg. 25,4 mm, 28 AWG, pas de 1.27mm, Gris, 5m','186,65','5','https://media.rs-online.com/t_thumb100/F2899896-01.jpg','Â RS Pro','B3H Nappes');
 
 delete Materiel where ref='11';
 
